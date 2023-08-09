@@ -54,19 +54,6 @@ The JSON response typically contains key-value pairs that provide valuable infor
 - **data:** This section contains the actual data payload returned by the API. The structure and content of this section vary based on the nature of the query. For instance, querying project details might return project-specific information, while a request for user profiles could include user-related data.
 
 ## Returned Attributes
-
-When you make requests to the Beewant API, you will receive responses that contain various attributes providing information about the requested resource. These attributes offer valuable insights into the characteristics and details of the returned data. Below are some common attributes you might encounter in the API responses:
-
-- **id:** A unique identifier assigned to the resource. This ID can be useful for referencing and further interactions.
-- **name:** The name or title of the resource, providing a human-readable identifier.
-- **created_at:** The timestamp indicating when the resource was created.
-- **updated_at:** The timestamp indicating the last update to the resource.
-- **status:** The status of the resource, indicating whether it's active, archived, or in another state.
-- **description:** A brief description providing additional context about the resource.
-- **metadata:** Additional metadata associated with the resource, which can include various custom fields or properties.
-
-These attributes offer a consistent and standardized way to understand and manage the resources returned by the API.
-
 > Example API Response
 
 ```json
@@ -86,15 +73,24 @@ These attributes offer a consistent and standardized way to understand and manag
   }
 }
 ```
+When you make requests to the Beewant API, you will receive responses that contain various attributes providing information about the requested resource. These attributes offer valuable insights into the characteristics and details of the returned data. Below are some common attributes you might encounter in the API responses:
+
+- **id:** A unique identifier assigned to the resource. This ID can be useful for referencing and further interactions.
+- **name:** The name or title of the resource, providing a human-readable identifier.
+- **created_at:** The timestamp indicating when the resource was created.
+- **updated_at:** The timestamp indicating the last update to the resource.
+- **status:** The status of the resource, indicating whether it's active, archived, or in another state.
+- **description:** A brief description providing additional context about the resource.
+- **metadata:** Additional metadata associated with the resource, which can include various custom fields or properties.
+
+These attributes offer a consistent and standardized way to understand and manage the resources returned by the API.
+
+
 
 
 
 
 ## Errors
-
-<aside class="notice">
-The error section is stored in a separate file located at <code>includes/_errors.md</code>. In Slate, you have the flexibility to organize your documentation into multiple files. Simply save them within the <code>includes</code> folder and include them in your <code>index.md</code> file's front matter. The files will be included in the order specified.
-</aside>
 
 When interacting with the Beewant API, you might encounter the following error codes and their meanings:
 
@@ -112,7 +108,10 @@ Error Code | Meaning
 500 | Internal Server Error -- An issue occurred on our server. Please retry later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
 
+
+<aside class="notice">
 If you encounter any of these error codes while interacting with the Beewant API, refer to this section for insights into their meanings and potential resolutions.
+</aside>
 
 ## Additional Resources and Tutorials
 
@@ -146,7 +145,7 @@ To obtain an API token:
 
 
 ## Using the API Token
-> To authorize, use this code:
+> To verify your token accessibility, use this code:
 
 ```python
 import requests
@@ -183,9 +182,10 @@ Include the API token in the headers of your API requests as follows:
 
 
 `GET /api/projects HTTP/1.1`
-`Host: beewant.com`
-`Authorization: Token YOUR_API_TOKEN`
 
+`Host: beewant.com`
+
+`Authorization: Token YOUR_API_TOKEN`
 
 
 ### API Method
@@ -200,7 +200,9 @@ endpoint  | (str) | The specific API endpoint you want to access, such as 'proje
 headers  | (dict) | The headers containing the Authorization token (e.g., 'Token <YOUR_TOKEN>'). This ensures your API requests are authenticated and authorized.
 
 ### Query Return
-<code>requests.Response</code>: The response object containing the API response. This response object allows you to access various properties, such as status codes, headers, and response content.
+
+Upon successful execution of the request, the API will return a JSON object containing the current user's authentication token. The structure of the response is as follows:
+`{"token": "486cb857e5d044a8dedf2bf289f3f3074eea430e"}`
 
 <aside class="notice">
 Remember to replace <code>YOUR_API_TOKEN</code> with the actual API token obtained from your Beewant account. This structure provides a clear explanation of how to authenticate, obtain an API token, and use it in API requests.
@@ -218,7 +220,7 @@ In the realm of collaborative annotation and data labeling, managing users effic
 
 ```python
 import requests
-url = "http://13.39.148.224/api/current-user/token"
+url = "http://beewant/api/current-user/token"
 payload={}
 files={}
 headers = {
@@ -232,7 +234,7 @@ response.json()
 
 
 ```shell
-curl --location --request GET 'http://13.39.148.224/api/current-user/token' \
+curl --location --request GET 'http://beewant/api/current-user/token' \
 --header 'Authorization: Token 486cb857e5d044a8dedf2bf289f3f3074eea430e'
 ```
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -251,6 +253,10 @@ To obtain your current user token through the Beewant API, you can use the `GET`
 | --- | --- | --- |
 | `headers` | - | The headers containing the Authorization token (e.g., 'Token <YOUR_TOKEN>'). This ensures your API requests are authenticated and authorized. |
 
+### Query Return
+
+Upon successfully making the API request to retrieve the current user's authentication token, the response will be a JSON object containing the authentication token. The structure of the response is as follows: `{"token": "486cb857e5d044a8dedf2bf289f3f3074eea430e"}`
+
 ## Getting current user (my user)
 
 > To authorize, use this code:
@@ -260,7 +266,7 @@ import requests
 url = "http://beewant.com/api/current-user/whoami"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("GET", url, headers=headers, data=payload)
 print(response)
@@ -273,7 +279,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/current-user/whoami' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -304,7 +310,7 @@ import requests
 url = "http://beewant.com/api/users/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("GET", url, headers=headers, data=payload)
 print(response)
@@ -316,7 +322,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/users/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
 
@@ -345,7 +351,7 @@ import requests
 url = "http://beewant.com/api/users/USER_ID/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("GET", url, headers=headers, data=payload)
 print(response)
@@ -358,7 +364,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/users/USER_ID/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -392,7 +398,7 @@ import requests
 url = "http://beewant.com/api/current-user/reset-token/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("POST", url, headers=headers, data=payload)
 print(response)
@@ -405,7 +411,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request POST 'http://beewant.com/api/current-user/reset-token/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -443,7 +449,7 @@ payload = json.dumps({
   "active_organization": ORG_ID
 })
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
   'Content-Type': 'application/json',
 }
 response = requests.request("POST", url, headers=headers, data=payload)
@@ -456,7 +462,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request POST 'http://beewant.com/api/users/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' \
+--header 'Authorization: Token <YOUR_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "first_name": "test",
@@ -513,7 +519,7 @@ payload = json.dumps({
   "active_organization": ORG_ID
 })
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
   'Content-Type': 'application/json',
 }
 response = requests.request("PATCH", url, headers=headers, data=payload)
@@ -527,7 +533,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request PATCH 'http://beewant.com/api/users/USER_ID/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' \
+--header 'Authorization: Token <YOUR_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "",
@@ -580,7 +586,7 @@ import requests
 url = "http://beewant.com/api/users/USER_ID"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response)
@@ -593,7 +599,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request DELETE 'http://beewant.com/api/users/USER_ID' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -656,7 +662,7 @@ print(data)
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/organizations/' \
-    --header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' 
+    --header 'Authorization: Token <YOUR_TOKEN>' 
 ```
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
 
@@ -766,7 +772,7 @@ print(data)
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/organizations/' \
-    --header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' 
+    --header 'Authorization: Token <YOUR_TOKEN>' 
 ```
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
 
@@ -1255,7 +1261,7 @@ Replace <code>ORG_ID</code> with the actual ID of the organization you want to d
 import requests
 
 # Define the API endpoint URL
-url = "http://13.39.148.224/api/organizations/ORG_ID/memberships/USER_ID"
+url = "http://beewant/api/organizations/ORG_ID/memberships/USER_ID"
 
 # Replace 'YOUR_TOKEN_ID', 'ORG_ID', and 'USER_ID' with your actual API token, organization ID, and user ID
 token_id = 'YOUR_TOKEN_ID'
@@ -1319,7 +1325,7 @@ import requests
 url = "http://beewant.com/api/projects/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("GET", url, headers=headers, data=payload)
 print(response)
@@ -1330,7 +1336,7 @@ response.json()
 
 ```shell
 curl --location --request GET 'http://beewant.com/api/projects/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
 
@@ -1357,7 +1363,7 @@ import requests
 url = "http://beewant.com/api/projects/PROJECT_ID/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("GET", url, headers=headers, data=payload)
 print(response)
@@ -1370,7 +1376,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/projects/PROJECT_ID/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -1399,7 +1405,7 @@ import requests
 url = "http://beewant.com/api/projects/PROJECT_ID/tasks/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("GET", url, headers=headers, data=payload)
 print(response)
@@ -1411,7 +1417,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request GET 'http://beewant.com/api/projects/PROJECT_ID/tasks/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
 
@@ -1451,7 +1457,7 @@ payload = json.dumps({
   "color": "#000000"
 })
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
   'Content-Type': 'application/json',
 }
 response = requests.request("POST", url, headers=headers, data=payload)
@@ -1465,7 +1471,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request POST 'http://beewant.com/api/projects/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' \
+--header 'Authorization: Token <YOUR_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
             "title": "New Project",
@@ -1515,7 +1521,7 @@ payload = json.dumps({
   "label_config": "string"
 })
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
   'Content-Type': 'application/json',
 }
 response = requests.request("POST", url, headers=headers, data=payload)
@@ -1529,7 +1535,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request POST 'http://beewant.com/api/projects/validate/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' \
+--header 'Authorization: Token <YOUR_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "label_config": "string"
@@ -1566,7 +1572,7 @@ payload = json.dumps({
   "title": "New project 00"
 })
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
   'Content-Type': 'application/json',
 }
 response = requests.request("PATCH", url, headers=headers, data=payload)
@@ -1580,7 +1586,7 @@ response.json()
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request PATCH 'http://beewant.com/api/projects/PROJECT_ID/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a' \
+--header 'Authorization: Token <YOUR_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "title": "New project 00"
@@ -1617,7 +1623,7 @@ import requests
 url = "http://beewant.com/api/projects/PROJECT_ID/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response)
@@ -1628,7 +1634,7 @@ print(response)
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request DELETE 'http://beewant.com/api/projects/PROJECT_ID/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
@@ -1659,7 +1665,7 @@ import requests
 url = "http://beewant.com/api/projects/PROJECT_ID/tasks/"
 payload={}
 headers = {
-  'Authorization': 'Token 96fac556ee62e082d883f3c253789b099482061a',
+  'Authorization': 'Token <YOUR_TOKEN>',
 }
 response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response)
@@ -1670,7 +1676,7 @@ print(response)
 ```shell
 # With shell, you can just pass the correct header with each request
 curl --location --request DELETE 'http://beewant.com/api/projects/PROJECT_ID/tasks/' \
---header 'Authorization: Token 96fac556ee62e082d883f3c253789b099482061a'
+--header 'Authorization: Token <YOUR_TOKEN>'
 ```
 
 > Make sure to replace `<YOUR_TOKEN>` with your API key.
