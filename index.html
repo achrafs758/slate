@@ -1,0 +1,2400 @@
+
+<!doctype html>
+<html>
+  <head>
+  <link href="images/favicon-bb7b6a6d.ico" rel="icon" type="image/ico" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for Beewant API"
+        >
+    <title>API Reference</title>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;python&quot;,&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/my_logo.ico" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#response-format" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#returned-attributes" class="toc-h2 toc-link" data-title="Returned Attributes">Returned Attributes</a>
+                  </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
+                  <li>
+                    <a href="#additional-resources-and-tutorials" class="toc-h2 toc-link" data-title="Additional Resources and Tutorials">Additional Resources and Tutorials</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#obtaining-an-api-token" class="toc-h2 toc-link" data-title="Obtaining an API Token">Obtaining an API Token</a>
+                  </li>
+                  <li>
+                    <a href="#using-the-api-token" class="toc-h2 toc-link" data-title="Using the API Token">Using the API Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-a-user-token" class="toc-h2 toc-link" data-title="Getting a user token">Getting a user token</a>
+                  </li>
+                  <li>
+                    <a href="#getting-current-user-my-user" class="toc-h2 toc-link" data-title="Getting current user (my user)">Getting current user (my user)</a>
+                  </li>
+                  <li>
+                    <a href="#listing-users" class="toc-h2 toc-link" data-title="Listing users">Listing users</a>
+                  </li>
+                  <li>
+                    <a href="#getting-user-info" class="toc-h2 toc-link" data-title="Getting user info">Getting user info</a>
+                  </li>
+                  <li>
+                    <a href="#reseting-user-token" class="toc-h2 toc-link" data-title="Reseting user token">Reseting user token</a>
+                  </li>
+                  <li>
+                    <a href="#creating-new-user" class="toc-h2 toc-link" data-title="Creating new user">Creating new user</a>
+                  </li>
+                  <li>
+                    <a href="#updating-user-details" class="toc-h2 toc-link" data-title="Updating user details">Updating user details</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-user" class="toc-h2 toc-link" data-title="Deleting a user">Deleting a user</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#workspace" class="toc-h1 toc-link" data-title="Workspace">Workspace</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listing-your-workspaces" class="toc-h2 toc-link" data-title="Listing Your Workspaces">Listing Your Workspaces</a>
+                  </li>
+                  <li>
+                    <a href="#getting-the-workspaces-settings" class="toc-h2 toc-link" data-title="Getting the workspaces settings">Getting the workspaces settings</a>
+                  </li>
+                  <li>
+                    <a href="#listing-your-workspaces-2" class="toc-h2 toc-link" data-title="Listing Your Workspaces">Listing Your Workspaces</a>
+                  </li>
+                  <li>
+                    <a href="#getting-the-workspaces-settings-2" class="toc-h2 toc-link" data-title="Getting the workspaces settings">Getting the workspaces settings</a>
+                  </li>
+                  <li>
+                    <a href="#getting-the-workspace-members-list" class="toc-h2 toc-link" data-title="Getting the workspace members list">Getting the workspace members list</a>
+                  </li>
+                  <li>
+                    <a href="#getting-a-workspace-member-settings" class="toc-h2 toc-link" data-title="Getting a workspace member settings">Getting a workspace member settings</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-workspace" class="toc-h2 toc-link" data-title="Creating a workspace">Creating a workspace</a>
+                  </li>
+                  <li>
+                    <a href="#updating-team-settings" class="toc-h2 toc-link" data-title="Updating team settings">Updating team settings</a>
+                  </li>
+                  <li>
+                    <a href="#updating-team-member-settings" class="toc-h2 toc-link" data-title="Updating team member settings">Updating team member settings</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-workspace" class="toc-h2 toc-link" data-title="Deleting a Workspace">Deleting a Workspace</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-workspace-membership" class="toc-h2 toc-link" data-title="Deleting a Workspace Membership">Deleting a Workspace Membership</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listing-your-projects" class="toc-h2 toc-link" data-title="Listing your projects">Listing your projects</a>
+                  </li>
+                  <li>
+                    <a href="#getting-a-project-by-id" class="toc-h2 toc-link" data-title="Getting a project by ID">Getting a project by ID</a>
+                  </li>
+                  <li>
+                    <a href="#getting-project-tasks-list" class="toc-h2 toc-link" data-title="Getting project tasks list">Getting project tasks list</a>
+                  </li>
+                  <li>
+                    <a href="#creating-new-project" class="toc-h2 toc-link" data-title="Creating new project">Creating new project</a>
+                  </li>
+                  <li>
+                    <a href="#validating-label-config" class="toc-h2 toc-link" data-title="Validating label config">Validating label config</a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-project" class="toc-h2 toc-link" data-title="Updating a project">Updating a project</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-project" class="toc-h2 toc-link" data-title="Deleting project">Deleting project</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-all-porject-tasks" class="toc-h2 toc-link" data-title="Deleting all porject tasks">Deleting all porject tasks</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://beewant.com/landing#requestAccesForm'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://beewant.com'>Documentation Powered by Beewant</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='overview'>Overview</h1>
+<p>Welcome to the world of Beewant API! 🐝</p>
+
+<p>The Beewant API opens the gateway to a realm of possibilities for seamless integration, innovation, and automation within the Beewant platform. Whether you&#39;re a developer, data scientist, or AI enthusiast, the Beewant API empowers you to interact programmatically with the heart of Beewant&#39;s collaborative and dynamic workspace environment.</p>
+
+<p>With the Beewant API, you gain the ability to effortlessly manage projects, tasks, metadata, users, and more, all while harnessing the power of automation and customization. Unlock the potential to streamline workflows, extract insights, and create tailored solutions that align perfectly with your needs.</p>
+
+<p>This documentation is your compass through the Beewant API landscape, offering clear and comprehensive guides, endpoints, and examples to help you embark on your journey of integrating Beewant&#39;s capabilities into your applications, workflows, and projects. So, whether you&#39;re seeking to supercharge your AI training process, enhance collaborative annotation, or build innovative AI-powered applications, the Beewant API is here to empower your creativity and efficiency.</p>
+
+<p>Let&#39;s dive in and explore the endless horizons that the Beewant API has to offer! 🚀</p>
+<h2 id='response-format'>Response Format</h2>
+<blockquote>
+<p>Here&#39;s an example of a JSON response structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Specific</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">related</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">query</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>When interacting with the Beewant API, the responses are provided in JSON format. JSON, or JavaScript Object Notation, is a widely adopted lightweight data-interchange format that offers simplicity and readability. This format is designed for both human understanding and easy machine parsing, making it an ideal choice for API responses.</p>
+
+<p>The JSON response typically contains key-value pairs that provide valuable information about the outcome of your API request. Here&#39;s an overview of the common components you can expect in a Beewant API response:</p>
+
+<ul>
+<li><strong>status_code:</strong> An HTTP status code that indicates the result of the API request. Common status codes include 200 (OK), 201 (Created), 400 (Bad Request), and 500 (Internal Server Error), among others.</li>
+<li><strong>message:</strong> A human-readable message that accompanies the status code, offering additional context about the outcome of the request.</li>
+<li><strong>data:</strong> This section contains the actual data payload returned by the API. The structure and content of this section vary based on the nature of the query. For instance, querying project details might return project-specific information, while a request for user profiles could include user-related data.</li>
+</ul>
+<h2 id='returned-attributes'>Returned Attributes</h2>
+<blockquote>
+<p>Example API Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Project"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-15T12:34:56Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-20T08:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a sample project for demonstration purposes."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"custom_field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>When you make requests to the Beewant API, you will receive responses that contain various attributes providing information about the requested resource. These attributes offer valuable insights into the characteristics and details of the returned data. Below are some common attributes you might encounter in the API responses:</p>
+
+<ul>
+<li><strong>id:</strong> A unique identifier assigned to the resource. This ID can be useful for referencing and further interactions.</li>
+<li><strong>name:</strong> The name or title of the resource, providing a human-readable identifier.</li>
+<li><strong>created_at:</strong> The timestamp indicating when the resource was created.</li>
+<li><strong>updated_at:</strong> The timestamp indicating the last update to the resource.</li>
+<li><strong>status:</strong> The status of the resource, indicating whether it&#39;s active, archived, or in another state.</li>
+<li><strong>description:</strong> A brief description providing additional context about the resource.</li>
+<li><strong>metadata:</strong> Additional metadata associated with the resource, which can include various custom fields or properties.</li>
+</ul>
+
+<p>These attributes offer a consistent and standardized way to understand and manage the resources returned by the API.</p>
+<h2 id='errors'>Errors</h2>
+<p>When interacting with the Beewant API, you might encounter the following error codes and their meanings:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- The provided API token is incorrect or missing.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- Access to the requested resource is restricted to administrators.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The requested resource could not be located.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- The requested method is not supported for this resource.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- The requested format is not supported (e.g., requesting a non-JSON response).</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The requested resource has been permanently removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- Your request rate exceeds the allowed limit. Please slow down.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- An issue occurred on our server. Please retry later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If you encounter any of these error codes while interacting with the Beewant API, refer to this section for insights into their meanings and potential resolutions.
+</aside>
+<h2 id='additional-resources-and-tutorials'>Additional Resources and Tutorials</h2>
+<p>To further enhance your understanding of utilizing the Beewant API effectively, we offer a range of resources and tutorials:</p>
+
+<ul>
+<li><p><strong>Python Tutorials:</strong> Our collection of Python tutorials has been crafted to provide step-by-step guidance on various aspects of working with the Beewant API. These tutorials cover essential topics like authentication, diverse request types, handling responses, and more. Delve into our <a href="https://beewant.com/python-tutorials">Python Tutorial Section</a> to access these valuable resources.</p></li>
+<li><p><strong>API Documentation:</strong> For a comprehensive exploration of the Beewant API&#39;s capabilities and endpoints, refer to our official <a href="https://beewant.com/api-docs">API Documentation</a>. This documentation provides intricate insights into each API endpoint, encompassing details about request parameters, response attributes, and practical usage examples.</p></li>
+</ul>
+
+<p>Whether you&#39;re a newcomer embarking on your API journey or an experienced developer seeking advanced insights, our tutorials and documentation are designed to empower you with a deep understanding of the Beewant API. If you encounter queries or require further assistance, don&#39;t hesitate to engage with our dedicated support team or vibrant community forums.</p>
+
+<p>Embrace these resources to expand your expertise in seamlessly integrating the Beewant API into your projects!</p>
+<h1 id='authentication'>Authentication</h1>
+<p>Authentication is an essential process to ensure the secure access of Beewant&#39;s API resources, safeguarding sensitive data and interactions. The API employs a robust Token-based authentication mechanism, which offers a sophisticated layer of security. With Token-based authentication, every interaction with the API mandates the inclusion of a unique API token within the headers of your HTTP requests. This token serves as a digital &quot;key,&quot; granting authorized access to the API&#39;s functionality and data repositories.</p>
+
+<p>Token-based authentication enhances the security of your API interactions by eliminating the need to expose sensitive credentials like usernames and passwords directly in the requests. Instead, your token acts as a secure, revocable authorization mechanism. By embedding the token in the request headers, you&#39;re effectively asserting your identity and authorization level with each interaction, ensuring that only authorized users gain access to the requested resources.</p>
+<h2 id='obtaining-an-api-token'>Obtaining an API Token</h2>
+<p>To obtain an API token:</p>
+
+<ol>
+<li>Log in to your Beewant account.</li>
+<li>Go to your profile settings.</li>
+<li>Generate a new API token.</li>
+<li>Copy the generated API token.</li>
+</ol>
+
+<p><img src="images/API_token-dafc59bc.png" alt="Alt Text" /></p>
+<h2 id='using-the-api-token'>Using the API Token</h2>
+<blockquote>
+<p>To verify your token accessibility, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">get_api_response</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"http://beewant.com/api/</span><span class="si">{</span><span class="n">endpoint</span><span class="si">}</span><span class="s">"</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+<span class="c1"># Replace 'Token &lt;YOUR_TOKEN&gt;' with your actual API token
+</span><span class="n">api_token</span> <span class="o">=</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="n">api_token</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Replace 'projects' with the appropriate API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">get_api_response</span><span class="p">(</span><span class="s">'projects'</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/projects'</span> <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>  
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>Include the API token in the headers of your API requests as follows:</p>
+
+<p><code>GET /api/projects HTTP/1.1</code></p>
+
+<p><code>Host: beewant.com</code></p>
+
+<p><code>Authorization: Token YOUR_API_TOKEN</code></p>
+<h3 id='api-method'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/projects</code></li>
+</ul>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>endpoint</td>
+<td>(str)</td>
+<td>The specific API endpoint you want to access, such as &#39;projects&#39;, &#39;tasks&#39;, etc. This determines the type of data you&#39;re interacting with.</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>(dict)</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+<h3 id='query-return'>Query Return</h3>
+<p>Upon successful execution of the request, the API will return a JSON object containing the current user&#39;s authentication token. The structure of the response is as follows:
+<code>{&quot;token&quot;: &quot;486cb857e5d044a8dedf2bf289f3f3074eea430e&quot;}</code></p>
+
+<aside class="notice">
+Remember to replace <code>YOUR_API_TOKEN</code> with the actual API token obtained from your Beewant account. This structure provides a clear explanation of how to authenticate, obtain an API token, and use it in API requests.
+</aside>
+<h1 id='users'>Users</h1>
+<p>In the realm of collaborative annotation and data labeling, managing users efficiently is pivotal. Beewant provides a robust set of features for user management, allowing you to invite, assign roles, and streamline access to projects. This section explores the various methods and endpoints available for managing users within the Beewant platform&#39;s API. Whether you&#39;re looking to create a seamless annotation workflow or maintain data privacy through role-based access, the user management capabilities offered by Beewant empower you to optimize your project&#39;s collaboration and security.</p>
+<h2 id='getting-a-user-token'>Getting a user token</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant/api/current-user/token"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">files</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token 486cb857e5d044a8dedf2bf289f3f3074eea430e'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant/api/current-user/token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token 486cb857e5d044a8dedf2bf289f3f3074eea430e'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To obtain your current user token through the Beewant API, you can use the <code>GET</code> method on the <code>/api/current-user/token endpoint</code>. This token is essential for authentication and enables you to access various endpoints securely. By retrieving your current user token, you ensure that your interactions with the Beewant platform are authenticated and authorized.</p>
+<h3 id='api-method-2'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/current-user/token</code></li>
+</ul>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+<h3 id='query-return-2'>Query Return</h3>
+<p>Upon successfully making the API request to retrieve the current user&#39;s authentication token, the response will be a JSON object containing the authentication token. The structure of the response is as follows: <code>{&quot;token&quot;: &quot;486cb857e5d044a8dedf2bf289f3f3074eea430e&quot;}</code></p>
+<h2 id='getting-current-user-my-user'>Getting current user (my user)</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/current-user/whoami"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/current-user/whoami'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To fetch information about the current user through the Beewant API, you can use the GET method on the /api/current-user/whoami endpoint. This action provides you with details about the currently authenticated user, including their profile information, roles, and permissions.</p>
+<h3 id='api-method-3'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/current-user/whoami</code></li>
+</ul>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code> with the actual ID of the organization you want to retrieve settings for.</aside>
+<h2 id='listing-users'>Listing users</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/users/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/users/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To retrieve a list of users within the Beewant platform using the Beewant API, you can use the <code>GET</code> method on the <code>/api/users/ endpoint</code>. This action provides you with a list of users registered within the platform, including their profile information.</p>
+<h3 id='api-method-4'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/users/</code></li>
+</ul>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>&lt;YOUR_TOKEN&gt;</code> with your actual token for authentication.</aside>
+<h2 id='getting-user-info'>Getting user info</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/users/USER_ID/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/users/USER_ID/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/api/organizations/ORG_ID</code></p>
+
+<p>To retrieve the details of a specific user within the Beewant platform using the Beewant API, you can use the <code>GET</code> method on the <code>/api/users/USER_ID/ endpoint</code>. This action provides you with detailed information about a particular user&#39;s profile.</p>
+<h3 id='api-method-5'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/users/USER_ID/</code></li>
+</ul>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>USER_ID</code></td>
+<td>The ID of the user for which you want to retrieve details. This ID uniquely identifies the specific user whose profile information you wish to view.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token &lt;YOUR_TOKEN&gt;&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>&lt;YOUR_TOKEN&gt;</code> with your actual token for authentication.</aside>
+<h2 id='reseting-user-token'>Reseting user token</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/current-user/reset-token/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://beewant.com/api/current-user/reset-token/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To reset the authentication token of the currently logged-in user within the Beewant platform using the Beewant API, you can use the <code>POST</code> method on the <code>/api/current-user/reset-token/</code> endpoint. This action allows you to generate a new token for the user, enhancing security and ensuring authorized access.</p>
+<h3 id='api-method-6'>API Method</h3>
+<ul>
+<li>Method: <code>POST</code></li>
+<li>Endpoint: <code>/api/current-user/reset-token/</code></li>
+</ul>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token &lt;YOUR_TOKEN&gt;&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>&lt;YOUR_TOKEN&gt;</code> with your actual token for authentication.</aside>
+<h2 id='creating-new-user'>Creating new user</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/users/"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
+  <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
+  <span class="s">"username"</span><span class="p">:</span> <span class="s">"test test"</span><span class="p">,</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"user1@example.com"</span><span class="p">,</span>
+  <span class="s">"phone"</span><span class="p">:</span> <span class="s">"07 00 00 00 00"</span><span class="p">,</span>
+  <span class="s">"active_organization"</span><span class="p">:</span> <span class="n">ORG_ID</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://beewant.com/api/users/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+"first_name": "test",
+"last_name": "test",
+"username": "test test",
+"email": "user1@example.com",
+"phone": "07 00 00 00 00",
+"active_organization": ORG_ID
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To create a new user within the Beewant platform using the Beewant API, you can use the <code>POST</code> method on the <code>/api/users/</code> endpoint. This action allows you to add a new user to the platform with specified details, such as name, email, phone number, and more.</p>
+<h3 id='api-method-7'>API Method</h3>
+<ul>
+<li>Method: <code>POST</code></li>
+<li>Endpoint: <code>/api/users/</code></li>
+</ul>
+<h3 id='request-parameters'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token &lt;YOUR_TOKEN&gt;&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+<tr>
+<td><code>first_name</code></td>
+<td>The first name of the new user.</td>
+</tr>
+<tr>
+<td><code>last_name</code></td>
+<td>The last name of the new user.</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>The username for the new user.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>The email address of the new user.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>The phone number of the new user.</td>
+</tr>
+<tr>
+<td><code>active_organization</code></td>
+<td>The ID of the organization to which the new user will be associated.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>&lt;YOUR_TOKEN&gt;</code> with your actual token for authentication.<br>
+Replace <code>&lt;ORG_ID&gt;</code> with the ID of the organization to which the user will be associated.</aside>
+<h2 id='updating-user-details'>Updating user details</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/users/USER_ID/"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"first_name"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span>
+  <span class="s">"last_name"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span>
+  <span class="s">"username"</span><span class="p">:</span> <span class="s">"User2"</span><span class="p">,</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"test_user@beewant.fr"</span><span class="p">,</span>
+  <span class="s">"last_activity"</span><span class="p">:</span> <span class="s">"2023-01-02T09:47:25.356680Z"</span><span class="p">,</span>
+  <span class="s">"initials"</span><span class="p">:</span> <span class="s">"te"</span><span class="p">,</span>
+  <span class="s">"phone"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span>
+  <span class="s">"active_organization"</span><span class="p">:</span> <span class="n">ORG_ID</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PATCH"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">'http://beewant.com/api/users/USER_ID/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "first_name": "",
+    "last_name": "",
+    "username": "User2",
+    "email": "test_user@beewant.fr",
+    "last_activity": "2023-01-02T09:47:25.356680Z",
+    "initials": "te",
+    "phone": "",
+    "active_organization": ORG_ID
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To update the details of a user within the Beewant platform using the Beewant API, you can use the <code>PATCH</code> method on the <code>/api/users/USER_ID/</code> endpoint. This action allows you to modify various information associated with a specific user, such as their name, email, phone number, and more.</p>
+<h3 id='api-method-8'>API Method</h3>
+<ul>
+<li>Method: <code>PATCH</code></li>
+<li>Endpoint: <code>/api/users/USER_ID/</code></li>
+</ul>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token &lt;YOUR_TOKEN&gt;&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+<tr>
+<td><code>USER_ID</code></td>
+<td>The ID of the user whose details you want to update.</td>
+</tr>
+<tr>
+<td><code>first_name</code></td>
+<td>The updated first name of the user.</td>
+</tr>
+<tr>
+<td><code>last_name</code></td>
+<td>The updated last name of the user.</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>The updated username for the user.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>The updated email address of the user.</td>
+</tr>
+<tr>
+<td><code>last_activity</code></td>
+<td>The updated last activity timestamp of the user.</td>
+</tr>
+<tr>
+<td><code>initials</code></td>
+<td>The updated initials of the user.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>The updated phone number of the user.</td>
+</tr>
+<tr>
+<td><code>active_organization</code></td>
+<td>The updated ID of the organization to which the user is associated.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>&lt;YOUR_TOKEN&gt;</code> with your actual token for authentication.<br>
+Replace <code>&lt;USER_ID&gt;</code> with the ID of the user whose details you want to update.</aside>
+<h2 id='deleting-a-user'>Deleting a user</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/users/USER_ID"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s1">'http://beewant.com/api/users/USER_ID'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To update the settings of a workspace, you can use the <code>DELETE</code> method on the <code>/api/organizations/ORG_ID</code> endpoint. This action allows you to modify various attributes of the workspace, such as its title, token, and creator.</p>
+<h3 id='api-method-9'>API Method</h3>
+<ul>
+<li>Method: <code>DELETE</code></li>
+<li>Endpoint: <code>/api/users/USER_ID</code></li>
+</ul>
+<h3 id='request-parameters-2'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token &lt;YOUR_TOKEN&gt;&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+<tr>
+<td><code>USER_ID</code></td>
+<td>The ID of the user that you want to delete.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>&lt;YOUR_TOKEN&gt;</code> with your actual token for authentication.<br>
+Replace <code>&lt;USER_ID&gt;</code> with the ID of the user you want to delete.</aside>
+<h1 id='workspace'>Workspace</h1>
+<p>This section provides information about managing your workspaces within the Beewant platform. 
+Workspaces, at the heart of the Beewant API ecosystem, offer a dynamic and organized environment for effective project management. A workspace serves as a dedicated realm where projects are conceived, developed, and nurtured. Through the Beewant API, you can seamlessly access, create, modify, and monitor these workspaces, empowering your applications with the ability to orchestrate projects with precision and efficiency. Discover how the Beewant API empowers you to harness the power of workspaces, ensuring a structured and collaborative approach to project management and data annotation.</p>
+<h2 id='listing-your-workspaces'>Listing Your Workspaces</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' with your actual API token
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a GET request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> 
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/projects</code></p>
+
+<p>To retrieve a list of your workspaces, you can use the <code>GET</code> method on the <code>/api/organizations/</code> endpoint. This action allows you to see all the workspaces associated with your account.</p>
+<h3 id='api-method-10'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/</code></li>
+</ul>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+<h2 id='getting-the-workspaces-settings'>Getting the workspaces settings</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/ORG_ID"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' with your actual API token
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a GET request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/ORG_ID'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/api/organizations/ORG_ID</code></p>
+
+<p>To retrieve workspace settings, you can use the <code>GET</code> method on the <code>/api/organizations/ORG_ID</code> endpoint. This action allows you to retrieve detailed information about a specific workspace associated with your account.</p>
+<h3 id='api-method-11'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/ORG_ID</code></li>
+</ul>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code> with the actual ID of the organization you want to retrieve settings for.</aside>
+<h2 id='listing-your-workspaces-2'>Listing Your Workspaces</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' with your actual API token
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a GET request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> 
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/projects</code></p>
+
+<p>To retrieve a list of your workspaces, you can use the <code>GET</code> method on the <code>/api/organizations/</code> endpoint. This action allows you to see all the workspaces associated with your account.</p>
+<h3 id='api-method-12'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/</code></li>
+</ul>
+<h3 id='query-parameters-10'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+<h2 id='getting-the-workspaces-settings-2'>Getting the workspaces settings</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/ORG_ID"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' with your actual API token
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a GET request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/ORG_ID'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/api/organizations/ORG_ID</code></p>
+
+<p>To retrieve workspace settings, you can use the <code>GET</code> method on the <code>/api/organizations/ORG_ID</code> endpoint. This action allows you to retrieve detailed information about a specific workspace associated with your account.</p>
+<h3 id='api-method-13'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/ORG_ID</code></li>
+</ul>
+<h3 id='query-parameters-11'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code> with the actual ID of the organization you want to retrieve settings for.</aside>
+<h2 id='getting-the-workspace-members-list'>Getting the workspace members list</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/ORG_ID/memberships"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' and 'ORG_ID' with your actual API token and organization ID
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">org_id</span> <span class="o">=</span> <span class="s">'YOUR_ORG_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a GET request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/ORG_ID/memberships'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/api/organizations/ORG_ID/memberships</code></p>
+
+<p>To retrieve a list of memberships within a specific workspace, you can use the <code>GET</code> method on the <code>/api/organizations/ORG_ID/memberships</code> endpoint. This action allows you to see all the members associated with the workspace, including their roles and permissions.</p>
+<h3 id='api-method-14'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/ORG_ID/memberships</code></li>
+</ul>
+<h3 id='query-parameters-12'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ORG_ID</code></td>
+<td>The ID of the organization for which you want to retrieve memberships. This ID identifies the specific workspace for which you want to view membership details.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token &lt;YOUR_TOKEN&gt;&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code> with the actual ID of the organization you want to retrieve settings for.</aside>
+<h2 id='getting-a-workspace-member-settings'>Getting a workspace member settings</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/ORG_ID/memberships"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' and 'ORG_ID' with your actual API token and organization ID
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">org_id</span> <span class="o">=</span> <span class="s">'YOUR_ORG_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a GET request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/ORG_ID/memberships/USER_ID'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To retrieve details about a user&#39;s membership within a specific organization, you can use the <code>GET</code> method on the <code>/api/organizations/ORG_ID/memberships/USER_ID</code> endpoint. This action allows you to view membership information for a particular user within a specified organization.</p>
+
+<p><strong>API Method:</strong></p>
+
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/ORG_ID/memberships/USER_ID</code></li>
+</ul>
+<h3 id='query-parameters-13'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ORG_ID</code></td>
+<td>The ID of the organization to which the user belongs. This ID identifies the specific workspace for which you want to view membership details.</td>
+</tr>
+<tr>
+<td><code>USER_ID</code></td>
+<td>The ID of the user for whom you want to retrieve membership details. This ID specifies the user whose membership information you want to access.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Make sure to replace `ORG_ID` and `USER_ID` with the actual IDs of the organization and user you are querying.</aside>
+<h2 id='creating-a-workspace'>Creating a workspace</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/organizations/"</span>
+
+<span class="c1"># Replace 'USER_ID' with the actual user ID
+</span><span class="n">USER_ID</span> <span class="o">=</span> <span class="s">'YOUR_USER_ID'</span>
+
+<span class="c1"># Define the payload data
+</span><span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+    <span class="s">"title"</span><span class="p">:</span> <span class="s">"YOUR_WORKSPACE_TITLE"</span><span class="p">,</span>
+    <span class="s">"token"</span><span class="p">:</span> <span class="s">"YOUR_TOKEN_VALUE"</span><span class="p">,</span>
+    <span class="s">"created_by"</span><span class="p">:</span> <span class="n">USER_ID</span>
+<span class="p">})</span>
+
+<span class="c1"># Define the headers with the API key and content type
+</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token YOUR_API_TOKEN'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a POST request to create a new workspace
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/organizations/ORG_ID/memberships'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To create a new workspace within your organization, you can utilize the Beewant API&#39;s <code>POST</code> method on the <code>/api/organizations/</code> endpoint. This action requires you to provide certain parameters to successfully create the workspace.</p>
+
+<p><strong>API Method:</strong></p>
+
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/organizations/ORG_ID/memberships/USER_ID</code></li>
+</ul>
+<h3 id='query-parameters-14'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>title</code></td>
+<td>Specifies the title or name of the resource.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Provides a description or additional information about the resource.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>Contains the main data associated with the resource.</td>
+</tr>
+<tr>
+<td><code>attributes</code></td>
+<td>Holds various attributes or properties of the resource.</td>
+</tr>
+<tr>
+<td><code>relationships</code></td>
+<td>Defines relationships between the resource and other resources.</td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td>Contains metadata or additional contextual information.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Make sure to replace `ORG_ID` and `USER_ID` with the actual IDs of the organization and user you are querying.</aside>
+<h2 id='updating-team-settings'>Updating team settings</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant/api/organizations/ORG_ID"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID', 'ORG_ID', and 'YOUR_USER_ID' with actual values
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">org_id</span> <span class="o">=</span> <span class="s">'YOUR_ORG_ID'</span>
+<span class="n">user_id</span> <span class="o">=</span> <span class="s">'YOUR_USER_ID'</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"title"</span><span class="p">:</span> <span class="s">"My Group"</span><span class="p">,</span>
+  <span class="s">"token"</span><span class="p">:</span> <span class="s">"862303f04524daeff"</span><span class="p">,</span>
+  <span class="s">"created_by"</span><span class="p">:</span> <span class="n">user_id</span>
+<span class="p">})</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a PATCH request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">'http://beewant/api/organizations/ORG_ID'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+        "title": "My Group",
+        "token": "862303f04524daeff",
+        "created_by": USER_ID
+    }'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To update the settings of a workspace, you can use the <code>PATCH</code> method on the <code>/api/organizations/ORG_ID</code> endpoint. This action allows you to modify various attributes of the workspace, such as its title, token, and creator.</p>
+<h3 id='api-method-15'>API Method</h3>
+<ul>
+<li><strong>Method:</strong> <code>PATCH</code></li>
+<li><strong>Endpoint:</strong> <code>/api/organizations/ORG_ID</code></li>
+</ul>
+<h3 id='query-parameters-15'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>title</code></td>
+<td>Specifies the title or name of the resource.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Provides a description or additional information about the resource.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>Contains the main data associated with the resource.</td>
+</tr>
+<tr>
+<td><code>attributes</code></td>
+<td>Holds various attributes or properties of the resource.</td>
+</tr>
+<tr>
+<td><code>relationships</code></td>
+<td>Defines relationships between the resource and other resources.</td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td>Contains metadata or additional contextual information.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code>, <code>YOUR_TOKEN_ID</code>, <code>YOUR_USER_ID</code>, and other placeholders with the actual values you want to use for the update.</aside>
+<h2 id='updating-team-member-settings'>Updating team member settings</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant/api/organizations/ORG_ID"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID', 'ORG_ID', and 'YOUR_USER_ID' with actual values
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">org_id</span> <span class="o">=</span> <span class="s">'YOUR_ORG_ID'</span>
+<span class="n">user_id</span> <span class="o">=</span> <span class="s">'YOUR_USER_ID'</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"title"</span><span class="p">:</span> <span class="s">"My Group"</span><span class="p">,</span>
+  <span class="s">"token"</span><span class="p">:</span> <span class="s">"862303f04524daeff"</span><span class="p">,</span>
+  <span class="s">"created_by"</span><span class="p">:</span> <span class="n">user_id</span>
+<span class="p">})</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a PATCH request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Parse the JSON content from the response
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Print the parsed JSON data
+</span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">'http://beewant/api/organizations/ORG_ID'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+        "title": "My Group",
+        "token": "862303f04524daeff",
+        "created_by": USER_ID
+    }'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To update the settings of a workspace, you can use the <code>PATCH</code> method on the <code>/api/organizations/ORG_ID</code> endpoint. This action allows you to modify various attributes of the workspace, such as its title, token, and creator.</p>
+<h3 id='api-method-16'>API Method</h3>
+<ul>
+<li><strong>Method:</strong> <code>PATCH</code></li>
+<li><strong>Endpoint:</strong> <code>/api/organizations/ORG_ID</code></li>
+</ul>
+<h3 id='query-parameters-16'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ORG_ID</code></td>
+<td>The ID of the organization for which you want to update settings. This ID identifies the specific workspace for which you want to modify attributes.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>The updated title for the workspace.</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>The updated token for the workspace.</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>The updated creator of the workspace (User ID).</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code>, <code>YOUR_TOKEN_ID</code>, <code>YOUR_USER_ID</code>, and other placeholders with the actual values you want to use for the update.</aside>
+<h2 id='deleting-a-workspace'>Deleting a Workspace</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant/api/organizations/ORG_ID"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID' and 'ORG_ID' with your actual API token and organization ID
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">org_id</span> <span class="o">=</span> <span class="s">'YOUR_ORG_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a DELETE request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s1">'http://beewant/api/organizations/ORG_ID'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To delete a specific workspace, you can use the <code>DELETE</code> method on the <code>/api/organizations/ORG_ID</code> endpoint. This action removes the workspace, including all associated data and settings.</p>
+<h3 id='api-method-17'>API Method</h3>
+<ul>
+<li><strong>Method:</strong> <code>DELETE</code></li>
+<li><strong>Endpoint:</strong> <code>/api/organizations/ORG_ID</code></li>
+</ul>
+<h3 id='query-parameters-17'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ORG_ID</code></td>
+<td>The ID of the organization you want to delete. This ID identifies the specific workspace to be removed.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code> with the actual ID of the organization you want to delete.</aside>
+<h2 id='deleting-a-workspace-membership'>Deleting a Workspace Membership</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Define the API endpoint URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant/api/organizations/ORG_ID/memberships/USER_ID"</span>
+
+<span class="c1"># Replace 'YOUR_TOKEN_ID', 'ORG_ID', and 'USER_ID' with your actual API token, organization ID, and user ID
+</span><span class="n">token_id</span> <span class="o">=</span> <span class="s">'YOUR_TOKEN_ID'</span>
+<span class="n">org_id</span> <span class="o">=</span> <span class="s">'YOUR_ORG_ID'</span>
+<span class="n">user_id</span> <span class="o">=</span> <span class="s">'YOUR_USER_ID'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Token </span><span class="si">{</span><span class="n">token_id</span><span class="si">}</span><span class="s">'</span>
+<span class="p">}</span>
+
+<span class="c1"># Send a DELETE request to the API endpoint
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Print the response object, including status code and headers
+</span><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Note: DELETE requests generally do not return content, so no need to parse JSON data
+</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s1">'http://beewant/api/organizations/ORG_ID'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'Authorization: Token YOUR_TOKEN_ID'</span>
+
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To remove a user&#39;s membership from a specific workspace, you can use the <code>DELETE</code> method on the <code>/api/organizations/ORG_ID/memberships/USER_ID</code> endpoint. This action allows you to remove a user from the membership list of the specified workspace.</p>
+<h3 id='api-method-18'>API Method</h3>
+<ul>
+<li><strong>Method:</strong> <code>DELETE</code></li>
+<li><strong>Endpoint:</strong> <code>/api/organizations/ORG_ID/memberships/USER_ID</code></li>
+</ul>
+<h3 id='query-parameters-18'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ORG_ID</code></td>
+<td>The ID of the organization that contains the workspace from which you want to remove the membership.</td>
+</tr>
+<tr>
+<td><code>USER_ID</code></td>
+<td>The ID of the user you want to remove from the workspace&#39;s membership.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>ORG_ID</code> and <code>USER_ID</code> with the actual IDs of the organization and user you want to remove from the workspace's membership.</aside>
+<h1 id='projects'>Projects</h1>
+<p>Projects are a fundamental concept within the Beewant API that enable you to organize and manage your annotation and data labeling tasks effectively. A project represents a specific annotation task or a collection of related tasks. Projects in the Beewant API provide a structured environment to collaborate, assign roles, set up annotations, and gather insights from the annotated data. Each project is associated with a set of tasks, metadata, and settings that define how the annotation process should be carried out. Using the Beewant API, you can create, retrieve, update, and delete projects, allowing you to streamline your data annotation workflow and achieve accurate and valuable results.</p>
+<h2 id='listing-your-projects'>Listing your projects</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/projects/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To retrieve a list of projects, you can use the <code>GET</code> method on the <code>/api/projects/ endpoint</code>. This action allows you to see all the projects associated with your account.</p>
+<h3 id='api-method-19'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/projects/</code></li>
+</ul>
+<h3 id='query-parameters-19'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>headers</code></td>
+<td>-</td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+<h2 id='getting-a-project-by-id'>Getting a project by ID</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/PROJECT_ID/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/projects/PROJECT_ID/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To retrieve details of a specific project, you can use the <code>GET</code> method on the <code>/api/projects/PROJECT_ID/ endpoint</code>. This action allows you to view the specific details and configuration of the project.</p>
+<h3 id='api-method-20'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/projects/PROJECT_ID/</code></li>
+</ul>
+<h3 id='query-parameters-20'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>PROJECT_ID</code></td>
+<td>The ID of the project for which you want to retrieve details. This ID identifies the specific project you want to view.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+<h2 id='getting-project-tasks-list'>Getting project tasks list</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/PROJECT_ID/tasks/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://beewant.com/api/projects/PROJECT_ID/tasks/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To retrieve a list of tasks within a specific project, you can use the <code>GET</code> method on the <code>/api/projects/PROJECT_ID/tasks endpoint</code>. This action allows you to see all the tasks associated with the project.</p>
+<h3 id='api-method-21'>API Method</h3>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>Endpoint: <code>/api/projects/PROJECT_ID/tasks</code></li>
+</ul>
+<h3 id='query-parameters-21'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>PROJECT_ID</code></td>
+<td>The ID of the project for which you want to retrieve tasks. This ID identifies the specific project you want to view tasks for.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>PROJECT_ID</code> with the actual ID of the project you want to retrieve tasks for.</aside>
+<h2 id='creating-new-project'>Creating new project</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"title"</span><span class="p">:</span> <span class="s">"New Project"</span><span class="p">,</span>
+  <span class="s">"show_instruction"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">"show_skip_button"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">"enable_empty_annotation"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">"show_annotation_history"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">"organization"</span><span class="p">:</span> <span class="n">ORG_ID</span><span class="p">,</span>
+  <span class="s">"color"</span><span class="p">:</span> <span class="s">"#000000"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://beewant.com/api/projects/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+            "title": "New Project",
+            "show_instruction": false,
+            "show_skip_button": true,
+            "enable_empty_annotation": true,
+            "show_annotation_history": true,
+            "organization": ORG_ID,
+            "color": "#000000"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p><strong>API Method:</strong> GET <code>/api/organizations/ORG_ID</code></p>
+
+<p>To create a new project, you can use the <code>POST</code> method on the <code>/api/projects/ endpoint</code>. This action allows you to configure various settings for the new project.</p>
+<h3 id='api-method-22'>API Method</h3>
+<ul>
+<li>Method: <code>POST</code></li>
+<li>Endpoint: <code>/api/projects/</code></li>
+</ul>
+<h3 id='query-parameters-22'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>The title of the new project.</td>
+</tr>
+<tr>
+<td><code>show_instruction</code></td>
+<td>boolean</td>
+<td>Determines if the instruction should be displayed to users when annotating tasks in the project.</td>
+</tr>
+<tr>
+<td><code>show_skip_button</code></td>
+<td>boolean</td>
+<td>Determines if the &quot;Skip&quot; button should be displayed to users when annotating tasks in the project.</td>
+</tr>
+<tr>
+<td><code>enable_empty_annotation</code></td>
+<td>boolean</td>
+<td>Determines if empty annotations are allowed in the project.</td>
+</tr>
+<tr>
+<td><code>show_annotation_history</code></td>
+<td>boolean</td>
+<td>Determines if the annotation history should be visible to users in the project.</td>
+</tr>
+<tr>
+<td><code>organization</code></td>
+<td>integer</td>
+<td>The ID of the organization to which the project belongs.</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td>string</td>
+<td>The color code of the project, expressed in hexadecimal format (e.g., <code>#FF5733</code>).</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Please note that not all parameters are required. You can omit those that are not relevant to your project's configuration. Also, replace placeholders such as <code>ORG_ID</code> with actual values.</aside>
+<h2 id='validating-label-config'>Validating label config</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/validate/"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"label_config"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://beewant.com/api/projects/validate/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+"label_config": "string"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To validate a project&#39;s label configuration, you can use the <code>POST</code> method on the <code>/api/projects/validate/ endpoint</code>. This action allows you to check whether the provided label configuration is valid.</p>
+<h3 id='api-method-23'>API Method</h3>
+<ul>
+<li>Method: <code>POST</code></li>
+<li>Endpoint: <code>/api/projects/validate/</code></li>
+</ul>
+<h3 id='query-parameters-23'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>label_config</code></td>
+<td>string</td>
+<td>The label configuration JSON string to validate.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>string</code> in the <code>label_config</code> parameter with the actual JSON string of your label configuration.</aside>
+<h2 id='updating-a-project'>Updating a project</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/PROJECT_ID/"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"title"</span><span class="p">:</span> <span class="s">"New project 00"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PATCH"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> PATCH <span class="s1">'http://beewant.com/api/projects/PROJECT_ID/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "title": "New project 00"
+    }'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To update project details, you can use the <code>PATCH</code> method on the <code>/api/projects/PROJECT_ID/ endpoint</code>. This action allows you to modify various project attributes.</p>
+<h3 id='api-method-24'>API Method</h3>
+<ul>
+<li>Method: <code>PATCH</code></li>
+<li>Endpoint: <code>/api/projects/PROJECT_ID/</code></li>
+</ul>
+<h3 id='query-parameters-24'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>PROJECT_ID</code></td>
+<td>The ID of the project you want to update. This ID identifies the specific project you&#39;re modifying.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td>The content type of the request payload, set to &#39;application/json&#39;. This ensures that the request payload is in JSON format.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace placeholders such as <code>PROJECT_ID</code> with the actual ID of the project you're updating.</aside>
+<h2 id='deleting-project'>Deleting project</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/PROJECT_ID/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s1">'http://beewant.com/api/projects/PROJECT_ID/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To delete a project, you can use the <code>DELETE</code> method on the <code>/api/projects/PROJECT_ID/ endpoint</code>. This action removes the specified project from your account.</p>
+<h3 id='api-method-25'>API Method</h3>
+<ul>
+<li>Method: <code>DELETE</code></li>
+<li>Endpoint: <code>/api/projects/PROJECT_ID/</code></li>
+</ul>
+<h3 id='query-parameters-25'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>PROJECT_ID</code></td>
+<td>The ID of the project you want to delete. This ID identifies the specific project you&#39;re removing.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>PROJECT_ID</code> with the actual ID of the project you want to delete.</aside>
+<h2 id='deleting-all-porject-tasks'>Deleting all porject tasks</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://beewant.com/api/projects/PROJECT_ID/tasks/"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token &lt;YOUR_TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s1">'http://beewant.com/api/projects/PROJECT_ID/tasks/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Token &lt;YOUR_TOKEN&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>&lt;YOUR_TOKEN&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>To delete tasks from a project, you can use the <code>DELETE</code> method on the <code>/api/projects/PROJECT_ID/tasks/ endpoint</code>. This action removes tasks associated with the specified project.</p>
+<h3 id='api-method-26'>API Method</h3>
+<ul>
+<li>Method: <code>DELETE</code></li>
+<li>Endpoint: <code>/api/projects/PROJECT_ID/tasks/</code></li>
+</ul>
+<h3 id='query-parameters-26'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>PROJECT_ID</code></td>
+<td>The ID of the project from which you want to delete tasks. This ID identifies the specific project from which you want to remove tasks.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>The headers containing the Authorization token (e.g., &#39;Token <YOUR_TOKEN>&#39;). This ensures your API requests are authenticated and authorized.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Replace <code>PROJECT_ID</code> with the actual ID of the project from which you want to delete tasks.</aside>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
